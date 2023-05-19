@@ -12,7 +12,8 @@ func main() {
 	cmd := exec.Command("/bin/sh")
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWIPC |
-			syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,
+			syscall.CLONE_NEWPID | syscall.CLONE_NEWNS |
+			syscall.CLONE_NEWUSER,
 	}
 	cmd.SysProcAttr.Credential = &syscall.Credential{
 		Uid: uint32(1),
